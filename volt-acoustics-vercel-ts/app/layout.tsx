@@ -1,0 +1,32 @@
+import "./globals.css";
+import Image from "next/image";
+import Link from "next/link";
+export const metadata = { title: "Volt Designs & Acoustics — ACP, WPC & Acoustic Solutions" };
+export default function RootLayout({children}:{children:React.ReactNode}){
+  return (
+    <html lang="en"><body>
+      <header className="sticky top-0 z-50 bg-black/50 backdrop-blur border-b border-white/10">
+        <div className="container flex items-center justify-between py-3">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo.jpg" alt="Volt Designs & Acoustics" width={28} height={28} />
+            <span className="font-bold">Volt <span style={{color:"#D4AF37"}}>Designs</span> & Acoustics</span>
+          </Link>
+          <nav className="hidden md:flex gap-5 text-sm">
+            <Link href="/products">Products</Link>
+            <Link href="/services">Services</Link>
+            <Link href="/ai-design-visualizer">AI Visualizer</Link>
+            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/about-us">About</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/get-a-quote" className="btn btn-gold text-sm">Get a Quote</Link>
+          </nav>
+        </div>
+      </header>
+      <main>{children}</main>
+      <footer className="border-t border-white/10 mt-16">
+        <div className="container py-8 text-sm text-white/70">© {new Date().getFullYear()} Volt Designs & Acoustics. All rights reserved.</div>
+      </footer>
+    </body></html>
+  );
+}
